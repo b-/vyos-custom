@@ -72,12 +72,18 @@ jobs:
         run: |
           mv bin/${{ steps.vars.outputs.build-output }} bin/${{ steps.vars.outputs.iso-name }}
 
+      - name: Sign images
+        uses: thomasdesr/minisign-action@v1
+        with:
+          args: -Sm bin/${{ steps.vars.outputs.iso-name }}
+          minisign_key: ${{ secrets.MINISIGN_PRIVATE_KEY  }}
+          
       - name: Create release with artifact
         uses: ncipollo/release-action@a2e71bdd4e7dab70ca26a852f29600c98b33153e # v1
         with:
           #token: "${{ steps.generate-token.outputs.token }}"
           tag: "vyos-${{ steps.vars.outputs.tag-name }}"
-          artifacts: "bin/${{ steps.vars.outputs.iso-name }}"
+          artifacts: "bin/${{ steps.vars.outputs.iso-name }}, bin/${{ steps.vars.outputs.iso-name }}.minisign"
           artifactErrorsFailBuild: true
           body: |
             Official VyOS Changelog:
