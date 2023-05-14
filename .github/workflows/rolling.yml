@@ -83,7 +83,7 @@ jobs:
         with:
           #token: "${{ steps.generate-token.outputs.token }}"
           tag: "vyos-${{ steps.vars.outputs.tag-name }}"
-          artifacts: "bin/${{ steps.vars.outputs.iso-name }}, bin/${{ steps.vars.outputs.iso-name }}.minisign"
+          artifacts: "bin/${{ steps.vars.outputs.iso-name }}, ${{ steps.vars.outputs.iso-name }}.minisign"
           artifactErrorsFailBuild: true
           body: |
             Official VyOS Changelog:
