@@ -11,7 +11,4 @@ modules:
   - type: git
     url: https://github.com/kylechase/vyos-module-speedtest.git
     version: main
-  - type: git
-    url: https://github.com/b-/vyos-module-minisign_pubkey.git
-    version: main
 ...
