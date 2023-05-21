@@ -2,9 +2,9 @@
 name: bri
 vyos_branch: sagitta
 modules:
-  - type: git
-    url: https://github.com/jack-broadway/vyos-module-tailscale.git
-    version: current
+#  - type: git
+#    url: https://github.com/jack-broadway/vyos-module-tailscale.git
+#    version: current
   - type: git
     url: https://github.com/b-/vyos-module-gitops.git
     version: saggita
